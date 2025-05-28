@@ -1,0 +1,134 @@
+---
+description: 
+globs: 
+alwaysApply: true
+---
+# Cursor AI Task Management Rules
+
+## Core Principle
+Always maintain a comprehensive `TASK.md` file in the project root as a living knowledge graph of project progress, implementation details, and next steps.
+
+## Task List Structure Requirements
+
+### File Naming and Location
+- Create/update `TASK.md` in the project root for main features
+- Use descriptive names for specific features (e.g., `ASSISTANT_CHAT.md`, `DATABASE_MIGRATION.md`)
+- Always include a clear title and description of the feature being implemented
+
+### Required Sections Structure
+```markdown
+# [Feature Name] Implementation
+
+Brief description of the feature and its purpose.
+
+## Completed Tasks
+- [x] Task 1 that has been completed
+- [x] Task 2 that has been completed
+
+## In Progress Tasks
+- [ ] Task 3 currently being worked on
+- [ ] Task 4 to be completed soon
+
+## Future Tasks
+- [ ] Task 5 planned for future implementation
+- [ ] Task 6 planned for future implementation
+
+## Implementation Plan
+Detailed description of how the feature will be implemented.
+
+## Relevant Files
+- `path/to/file.js` - Brief description of file's purpose ✅
+- `path/to/component.tsx` - Description of component functionality
+- `path/to/style.css` - Styling for the feature
+
+## Architecture Decisions
+- Key architectural choices made
+- Data flow descriptions
+- Technical components needed
+- Environment configuration notes
+```
+
+## AI Behavior Rules
+
+### 1. Automatic Task List Maintenance
+- **ALWAYS** update the `TASK.md` file after implementing any significant component or feature
+- Mark completed tasks with `[x]` when finished
+- Add new tasks as they are identified during development
+- Move tasks between sections as their status changes
+
+### 2. Task Status Management
+- Mark tasks as completed by changing `[ ]` to `[x]`
+- When starting work on a task, move it to "In Progress Tasks" section
+- Add timestamps or brief notes for complex tasks when helpful
+
+### 3. File Documentation Requirements
+- Maintain the "Relevant Files" section with accurate file paths
+- Add brief descriptions of each file's purpose
+- Use status indicators: ✅ for completed, 🚧 for in-progress, ❌ for issues
+- Include new files as they are created during implementation
+
+### 4. Implementation Detail Tracking
+- Document architecture decisions as they are made
+- Describe data flow and component interactions
+- Note technical dependencies and environment requirements
+- Record any configuration changes needed
+
+### 5. Progressive Development Workflow
+When implementing tasks:
+1. **Before starting**: Check which task to implement next from the task list
+2. **During implementation**: Update the task list if new subtasks are discovered
+3. **After completion**: Mark the task as completed and update the file to reflect progress
+4. **Always**: Ensure the "Relevant Files" section reflects the current state
+
+### 6. Task Discovery and Planning
+- When working on a feature, proactively identify related tasks that may be needed
+- Break down large tasks into smaller, manageable subtasks
+- Add discovered tasks to the appropriate section (In Progress or Future Tasks)
+- Consider dependencies between tasks when organizing
+
+### 7. Code Organization Tracking
+- Document the relationship between different code files
+- Note how components interact with each other
+- Track API endpoints, database schemas, or external integrations
+- Record testing strategies and completed tests
+
+## Example Task Update Process
+
+When updating a task from "In Progress" to "Completed":
+
+**Before:**
+```markdown
+## In Progress Tasks
+- [ ] Implement user authentication system
+```
+
+**After:**
+```markdown
+## Completed Tasks
+- [x] Implement user authentication system
+
+## Relevant Files
+- `src/auth/AuthProvider.tsx` - Main authentication context provider ✅
+- `src/hooks/useAuth.ts` - Custom hook for authentication state ✅
+- `src/api/auth.ts` - Authentication API calls ✅
+```
+
+## Special Instructions
+
+### For Complex Features
+- Create separate task files for major features (e.g., `AUTH_SYSTEM.md`, `DATABASE_SCHEMA.md`)
+- Cross-reference between task files when features interact
+- Maintain a master `TASK.md` that references other task files
+
+### For Bug Fixes and Maintenance
+- Add bug fixes to a "Bug Fixes" section in the relevant task file
+- Document the issue, solution, and affected files
+- Use format: `- [x] Fix: Description of bug and solution`
+
+### For Code Reviews and Refactoring
+- Track refactoring tasks separately in a "Code Quality" section
+- Document performance improvements and optimization tasks
+- Note code review feedback and implementation of suggestions
+
+## Commitment
+I will consistently maintain this task management system throughout the development process, ensuring that the knowledge graph remains accurate, up-to-date, and useful for tracking project progress and understanding the codebase structure.
